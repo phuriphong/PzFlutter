@@ -4,6 +4,7 @@ import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:demo1/src/config/theme.dart' as custom_theme;
+import 'package:demo1/src/config/route.dart' as custom_route;
 
 class LoginForm extends StatefulWidget {
   @override
@@ -74,12 +75,17 @@ class _LoginFormState extends State<LoginForm> {
       Future.delayed(Duration(seconds: 2)).then((value) async {
         Navigator.pop(context);
         if (username == 'iblurblur.dev@gmail.com' && password == '12345678') {
-          Navigator.pushReplacement(
+          /*    Navigator.pushReplacement(
             context,
             MaterialPageRoute(
               builder: (context) => HomePage(),
             ),
-          );
+          );*/
+          Navigator.pushReplacementNamed(context, custom_route.Route.home,
+              arguments: {
+                'name': "pz",
+                'age': 12,
+              });
         }
       });
     } else {
